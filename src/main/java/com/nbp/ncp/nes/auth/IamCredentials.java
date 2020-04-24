@@ -7,16 +7,14 @@
 
 package com.nbp.ncp.nes.auth;
 
-import java.net.URI;
-import java.util.Date;
+import com.nbp.ncp.nes.exception.SdkException;
+import okhttp3.Request;
+import org.apache.commons.codec.binary.Base64;
 
 import javax.crypto.Mac;
 import javax.crypto.spec.SecretKeySpec;
-
-import org.apache.commons.codec.binary.Base64;
-
-import com.nbp.ncp.nes.exception.SdkException;
-import okhttp3.Request;
+import java.net.URI;
+import java.util.Date;
 
 /**
  * The type Iam credentials.

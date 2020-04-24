@@ -7,19 +7,16 @@
 
 package com.nbp.ncp.nes.auth;
 
-import java.io.FileInputStream;
-import java.io.IOException;
+import com.uanid.sdk.ncloud.service.util.Utils;
+
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Properties;
-
-import com.nbp.ncp.nes.exception.SdkException;
 
 /**
  * The type Properties file credentials provider.
  */
 public class PropertiesFileCredentialsProvider implements CredentialsProvider {
-    private final String path;
 	private final CredentialsProvider providerDelegate;
 
     /**
@@ -28,22 +25,7 @@ public class PropertiesFileCredentialsProvider implements CredentialsProvider {
      * @param path the path
      */
     public PropertiesFileCredentialsProvider(String path) {
-        this.path = path;
-		Properties properties = new Properties();
-		FileInputStream fileInputStream = null;
-		try {
-			fileInputStream = new FileInputStream(path);
-			properties.load(fileInputStream);
-		} catch (IOException e) {
-			throw new SdkException("Failed to load credentials from the " + path + " file", e);
-		} finally {
-			try {
-				if (fileInputStream != null) {
-					fileInputStream.close();
-				}
-			} catch (IOException e) {
-			}
-		}
+		Properties properties = Utils.loadPropertiesFromFile(path);
 
 		Map<String, String> map = new HashMap<>();
 		map.put("type", properties.getProperty("type"));

@@ -1,11 +1,11 @@
 # 네이버 클라우드 플랫폼 Simple & Easy - Notification Service SDK
 [![](https://jitci.com/gh/Uanid/ncloud-notification-sdk/svg)](https://jitci.com/gh/Uanid/ncloud-notification-sdk)
 
-해당 프로젝트는 NCP에서 'Simple & Easy - Notification Service'라는 상품의 클라이언트 Java SDK를 제공하는 프로젝트입니다.
+1. 해당 프로젝트는 NCP에서 'Simple & Easy - Notification Service'라는 상품의 클라이언트 Java SDK를 제공하는 프로젝트입니다.
 
-해당 상품에 대한 자세한 설명은 다음 주소에서 확인할 수 있습니다. [바로가기](https://www.ncloud.com/product/applicationService/sens)
+2. 해당 상품에 대한 자세한 설명은 다음 주소에서 확인할 수 있습니다. [바로가기](https://www.ncloud.com/product/applicationService/sens)
 
-원본 소스코드는 [여기](https://apidocs.ncloud.com/ko/common/ncpapi/) (	ncloud_outboundmailer.zip) 에서 참고했습니다.
+3. 원본 소스코드는 [여기](https://apidocs.ncloud.com/ko/common/ncpapi/) (	ncloud_outboundmailer.zip) 에서 참고했습니다.
 원래 원본에서 포크를 따오고 싶었지만, 아쉽게도 Mailer SDK는 NCP 깃허브에 올라오지 않아 Git 기록 없이 추가하게 되었습니다.
 
 ## 라이브러리 Import 방법

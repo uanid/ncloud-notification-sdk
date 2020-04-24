@@ -1,4 +1,5 @@
 # 네이버 클라우드 플랫폼 Simple & Easy - Notification Service SDK
+[![](https://jitci.com/gh/Uanid/ncloud-notification-sdk/svg)](https://jitci.com/gh/Uanid/ncloud-notification-sdk)
 
 해당 프로젝트는 NCP에서 'Simple & Easy - Notification Service'라는 상품의 클라이언트 Java SDK를 제공하는 프로젝트입니다.
 

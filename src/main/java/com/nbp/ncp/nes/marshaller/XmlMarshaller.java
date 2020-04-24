@@ -7,12 +7,12 @@
 
 package com.nbp.ncp.nes.marshaller;
 
-import java.io.IOException;
-import java.io.InputStream;
-
 import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.dataformat.xml.XmlMapper;
 import com.fasterxml.jackson.dataformat.xml.ser.ToXmlGenerator;
+
+import java.io.IOException;
+import java.io.InputStream;
 
 /**
  * The type Xml marshaller.

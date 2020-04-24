@@ -14,29 +14,17 @@
 
 package com.uanid.sdk.ncloud.service.mailer;
 
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-
 import com.nbp.ncp.nes.ApiClient;
 import com.nbp.ncp.nes.ApiRequest;
 import com.nbp.ncp.nes.ApiResponse;
 import com.nbp.ncp.nes.exception.ApiException;
 import com.nbp.ncp.nes.exception.SdkException;
-import com.uanid.sdk.ncloud.service.mailer.model.AddressBookDeleteAddressRequest;
-import com.uanid.sdk.ncloud.service.mailer.model.AddressBookDeleteRelationRequest;
-import com.uanid.sdk.ncloud.service.mailer.model.AddressBookGenerateRequest;
-import com.uanid.sdk.ncloud.service.mailer.model.AddressBookInitResponse;
-import com.uanid.sdk.ncloud.service.mailer.model.AddressBookResponse;
-import com.uanid.sdk.ncloud.service.mailer.model.EmailListResponse;
-import com.uanid.sdk.ncloud.service.mailer.model.EmailRequestStatusResponse;
-import com.uanid.sdk.ncloud.service.mailer.model.EmailResponse;
-import com.uanid.sdk.ncloud.service.mailer.model.EmailSendListResponse;
-import com.uanid.sdk.ncloud.service.mailer.model.EmailSendRequest;
-import com.uanid.sdk.ncloud.service.mailer.model.EmailSendResponse;
+import com.uanid.sdk.ncloud.service.mailer.model.*;
+
 import java.io.File;
-import com.uanid.sdk.ncloud.service.mailer.model.FileUploadResponse;
-import com.uanid.sdk.ncloud.service.mailer.model.UnsubscribeListResponse;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 public class OutboundMailerService {
 	private final ApiClient apiClient;

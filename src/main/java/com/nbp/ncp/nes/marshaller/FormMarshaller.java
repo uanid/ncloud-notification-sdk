@@ -7,17 +7,16 @@
 
 package com.nbp.ncp.nes.marshaller;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.nbp.ncp.nes.exception.SdkException;
+import org.apache.commons.codec.binary.Base64;
+
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
 import java.util.Collection;
 import java.util.Map;
-
-import org.apache.commons.codec.binary.Base64;
-
-import com.fasterxml.jackson.databind.ObjectMapper;
-import com.nbp.ncp.nes.exception.SdkException;
 
 /**
  * The type Form marshaller.

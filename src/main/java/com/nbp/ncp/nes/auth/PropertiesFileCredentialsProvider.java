@@ -9,6 +9,8 @@ package com.nbp.ncp.nes.auth;
 
 import java.io.FileInputStream;
 import java.io.IOException;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Properties;
 
 import com.nbp.ncp.nes.exception.SdkException;
@@ -17,18 +19,16 @@ import com.nbp.ncp.nes.exception.SdkException;
  * The type Properties file credentials provider.
  */
 public class PropertiesFileCredentialsProvider implements CredentialsProvider {
-	private final String path;
+    private final String path;
+	private final CredentialsProvider providerDelegate;
 
-	/**
-	 * Instantiates a new Properties file credentials provider.
-	 *
-	 * @param path the path
-	 */
-	public PropertiesFileCredentialsProvider(String path) {
-		this.path = path;
-	}
-
-	public Credentials getCredentials() {
+    /**
+     * Instantiates a new Properties file credentials provider.
+     *
+     * @param path the path
+     */
+    public PropertiesFileCredentialsProvider(String path) {
+        this.path = path;
 		Properties properties = new Properties();
 		FileInputStream fileInputStream = null;
 		try {
@@ -45,25 +45,18 @@ public class PropertiesFileCredentialsProvider implements CredentialsProvider {
 			}
 		}
 
-		String type = properties.getProperty("type");
-		if (type == null) {
-			throw new SdkException("It doesn't contain the required properties 'type'.");
-		}
+		Map<String, String> map = new HashMap<>();
+		map.put("type", properties.getProperty("type"));
+		map.put("apiKey", properties.getProperty("apiKey"));
+		map.put("accessKey", properties.getProperty("accessKey"));
+		map.put("secretKey", properties.getProperty("secretKey"));
+		this.providerDelegate = new MapCredentialsProvider(map);
+    }
 
-		if (type.equalsIgnoreCase("default") == true) {
-			if (properties.containsKey("apiKey") == false) {
-				throw new SdkException("It doesn't contain the required properties 'apiKey'.");
-			}
-			return new DefaultCredentials(properties.getProperty("apiKey"));
-		} else if (type.equalsIgnoreCase("iam") == true) {
-			if (properties.containsKey("accessKey") == false || properties.containsKey("secretKey") == false) {
-				throw new SdkException("It doesn't contain the required properties 'accessKey' and 'secretKey'.");
-			}
-			return new IamCredentials(properties.getProperty("apiKey"), properties.getProperty("accessKey"), properties.getProperty("secretKey"));
-		}
-		throw new SdkException("");
-	}
+    public Credentials getCredentials() {
+    	return this.providerDelegate.getCredentials();
+    }
 
-	public void refresh() {
-	}
+    public void refresh() {
+    }
 }

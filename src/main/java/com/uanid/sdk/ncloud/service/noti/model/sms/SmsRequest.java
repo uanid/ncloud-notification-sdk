@@ -1,4 +1,4 @@
-package com.uanid.sdk.ncloud.service.noti.model;
+package com.uanid.sdk.ncloud.service.noti.model.sms;
 
 import com.sun.istack.internal.Nullable;
 import lombok.AllArgsConstructor;
@@ -16,7 +16,7 @@ import java.util.List;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class SendSmsRequest {
+public class SmsRequest {
     private SmsType type;
 
     @Nullable
@@ -32,7 +32,7 @@ public class SendSmsRequest {
 
     private String content;
 
-    private List<SmsMessage> messages;
+    private List<SmsRequestMessage> messages;
 
     @Nullable
     private List<SmsFile> files;
@@ -47,7 +47,7 @@ public class SendSmsRequest {
     @Nullable
     private String scheduleCode; //등록하려는 스케줄 코드
 
-    public SendSmsRequest(SmsType type, String content, List<SmsMessage> messages) {
+    public SmsRequest(SmsType type, String content, List<SmsRequestMessage> messages) {
         this.type = type;
         this.content = content;
         this.messages = messages;

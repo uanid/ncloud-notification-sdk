@@ -1,10 +1,7 @@
-package com.uanid.sdk.ncloud.service.noti.model;
+package com.uanid.sdk.ncloud.service.noti.model.sms;
 
 import com.sun.istack.internal.Nullable;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 /**
  * @author uanid
@@ -12,9 +9,10 @@ import lombok.Setter;
  */
 @Getter
 @Setter
+@ToString
 @NoArgsConstructor
 @AllArgsConstructor
-public class SmsMessage {
+public class SmsRequestMessage {
     private String to;
 
     @Nullable

@@ -1,9 +1,6 @@
-package com.uanid.sdk.ncloud.service.noti.model;
+package com.uanid.sdk.ncloud.service.noti.model.sms;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 /**
  * @author uanid
@@ -11,9 +8,10 @@ import lombok.Setter;
  */
 @Getter
 @Setter
+@ToString
 @NoArgsConstructor
 @AllArgsConstructor
-public class SendSmsResponse {
+public class SmsResponse {
     private String statusCode;
     private String statusName;
     private String requestId;

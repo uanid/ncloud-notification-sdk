@@ -73,6 +73,11 @@ public class ApiClient {
 		Response response = getResponse(request);
 
 		if (response.isSuccessful() == false) {
+			try {
+				System.out.println(new String(response.body().bytes()));
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
 			throw new ApiException("The response failed", response.code(), response.headers().toMultimap(), response.body().byteStream());
 		}
 

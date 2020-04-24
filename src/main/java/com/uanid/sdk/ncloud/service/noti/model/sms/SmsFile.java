@@ -1,4 +1,4 @@
-package com.uanid.sdk.ncloud.service.noti.model;
+package com.uanid.sdk.ncloud.service.noti.model.sms;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

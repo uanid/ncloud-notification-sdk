@@ -18,4 +18,8 @@ public class SmsRequestMessage {
     private String subject; //LMS, MMS만 사용
 
     private String content;
+
+    public SmsRequestMessage(String to) {
+        this.to = to;
+    }
 }

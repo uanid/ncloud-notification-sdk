@@ -1,6 +1,5 @@
 package com.uanid.sdk.ncloud.service.noti.model.sms;
 
-import com.sun.istack.internal.Nullable;
 import lombok.*;
 
 /**
@@ -15,7 +14,7 @@ import lombok.*;
 public class SmsRequestMessage {
     private String to;
 
-    @Nullable
+    //nullable
     private String subject; //LMS, MMS만 사용
 
     private String content;

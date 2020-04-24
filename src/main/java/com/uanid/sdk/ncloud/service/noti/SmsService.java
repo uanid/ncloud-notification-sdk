@@ -26,8 +26,10 @@ public class SmsService {
         return apiClient;
     }
 
-    public ApiResponse<SendSmsResponse> sendSms(SendSmsRequest requestBody, SmsProfile smsProfile) {
-        String path = String.format("/services/%s/messages", smsProfile.getServiceId());
+    public ApiResponse<SendSmsResponse> sendSms(SendSmsRequest requestBody, SmsProfile profile) {
+        requestBody.setFrom(profile.getFromNumber());
+
+        String path = String.format("/services/%s/messages", profile.getServiceId());
         // query params
         Map<String, Object> queryParams = new HashMap<String, Object>();
         // form params

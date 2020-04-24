@@ -25,9 +25,9 @@ public class SendSmsRequest {
     @Nullable
     private String countryCode; //default 82
 
-    private String from;
+    private String from; //SmsProfile에서 채워질 정보
 
-    @Nullable
+   @Nullable
     private String subject; //LMS, MMS만 선택 가능
 
     private String content;

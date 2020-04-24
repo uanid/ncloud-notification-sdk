@@ -3,7 +3,6 @@ package com.uanid.sdk.ncloud.service.noti;
 import com.nbp.ncp.nes.ApiClient;
 import com.nbp.ncp.nes.ApiResponse;
 import com.nbp.ncp.nes.auth.CredentialsProvider;
-import com.nbp.ncp.nes.auth.IamCredentials;
 import com.nbp.ncp.nes.auth.PropertiesFileCredentialsProvider;
 import com.nbp.ncp.nes.marshaller.JsonMarshaller;
 import com.uanid.sdk.ncloud.service.noti.model.SendSmsRequest;
@@ -43,9 +42,10 @@ public class SmsServiceTest {
     public void test() {
         SendSmsRequest request = new SendSmsRequest();
         request.setType(SmsType.SMS);
-        request.setFrom("01037591038");
         request.setContent("Faker fFFFF");
-        request.setMessages(Collections.singletonList(new SmsMessage("01037591038", null, null)));
+
+        //이렇게 쪼개면 개인정보 수집하는 봇이 수집 못할듯?
+        request.setMessages(Collections.singletonList(new SmsMessage("010" + "3759" + "1038", null, null)));
         ApiResponse<SendSmsResponse> response = smsService.sendSms(request, smsProfile);
         System.out.println("AAa");
     }

@@ -14,9 +14,9 @@
 
 package com.uanid.sdk.ncloud.service.mailer.model;
 
-import java.util.Objects;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 /**
  * 수신자 그룹 조합 필터

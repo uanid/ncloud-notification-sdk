@@ -7,6 +7,16 @@
 
 package com.nbp.ncp.nes;
 
+import com.nbp.ncp.nes.auth.Credentials;
+import com.nbp.ncp.nes.exception.ApiException;
+import com.nbp.ncp.nes.exception.SdkException;
+import com.nbp.ncp.nes.marshaller.FormMarshaller;
+import com.nbp.ncp.nes.marshaller.Marshaller;
+import okhttp3.*;
+import okhttp3.internal.http.HttpMethod;
+import okhttp3.logging.HttpLoggingInterceptor;
+
+import javax.activation.MimetypesFileTypeMap;
 import java.io.File;
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
@@ -16,24 +26,6 @@ import java.util.LinkedHashSet;
 import java.util.Map;
 import java.util.Set;
 import java.util.concurrent.TimeUnit;
-
-import javax.activation.MimetypesFileTypeMap;
-
-import com.nbp.ncp.nes.auth.Credentials;
-import com.nbp.ncp.nes.exception.ApiException;
-import com.nbp.ncp.nes.exception.SdkException;
-import com.nbp.ncp.nes.marshaller.FormMarshaller;
-import com.nbp.ncp.nes.marshaller.Marshaller;
-import okhttp3.Headers;
-import okhttp3.HttpUrl;
-import okhttp3.MediaType;
-import okhttp3.MultipartBody;
-import okhttp3.OkHttpClient;
-import okhttp3.Request;
-import okhttp3.RequestBody;
-import okhttp3.Response;
-import okhttp3.internal.http.HttpMethod;
-import okhttp3.logging.HttpLoggingInterceptor;
 
 /**
  * The type Api client.
@@ -81,6 +73,11 @@ public class ApiClient {
 		Response response = getResponse(request);
 
 		if (response.isSuccessful() == false) {
+			try {
+				System.out.println(new String(response.body().bytes()));
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
 			throw new ApiException("The response failed", response.code(), response.headers().toMultimap(), response.body().byteStream());
 		}
 

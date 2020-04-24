@@ -7,7 +7,6 @@
 
 package com.nbp.ncp.nes;
 
-import java.util.HashMap;
 import java.util.Map;
 
 /**
@@ -17,9 +16,9 @@ import java.util.Map;
  */
 public class ApiRequest<T> {
 	private final String method;
-	private final String domain = "https://mail.apigw.ntruss.com";
-	private final String basePath = "/api/v1";
 	private final String path;
+	private final String domain;
+	private final String basePath;
 	private final Map<String, Object> queryParams;
 	private final Map<String, Object> formParams;
 	private final Map<String, Object> httpHeaders;
@@ -36,9 +35,11 @@ public class ApiRequest<T> {
 	 * @param formParams the form params
 	 * @param httpHeaders the http headers
 	 */
-	public ApiRequest(String method, String path, Map<String, Object> queryParams, Map<String, Object> formParams, Map<String, Object> httpHeaders, boolean isRequiredApiKey) {
+	public ApiRequest(String method, String path, String domain, String basePath, Map<String, Object> queryParams, Map<String, Object> formParams, Map<String, Object> httpHeaders, boolean isRequiredApiKey) {
 		this.method = Method.get(method).name();
 		this.path = path;
+		this.domain = domain;
+		this.basePath = basePath;
 		this.queryParams = queryParams;
 		this.formParams = formParams;
 		this.httpHeaders = httpHeaders;
@@ -58,9 +59,11 @@ public class ApiRequest<T> {
 	 * @param body the body
 	 * @param isCustomFormParams the is custom form params
 	 */
-	public ApiRequest(String method, String path, Map<String, Object> queryParams, Map<String, Object> formParams, Map<String, Object> httpHeaders, T body, boolean isCustomFormParams, boolean isRequiredApiKey) {
+	public ApiRequest(String method, String path, String domain, String basePath, Map<String, Object> queryParams, Map<String, Object> formParams, Map<String, Object> httpHeaders, T body, boolean isCustomFormParams, boolean isRequiredApiKey) {
 		this.method = Method.get(method).name();
 		this.path = path;
+		this.domain = domain;
+		this.basePath = basePath;
 		this.queryParams = queryParams;
 		this.formParams = formParams;
 		this.httpHeaders = httpHeaders;

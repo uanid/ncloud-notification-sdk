@@ -57,4 +57,4 @@ Simple & Easy - Notification Service 상품:
 - PUSH API v2 (구현안됨)
 - 알림톡 API v2 (구현안됨)
 
-사업자 등록증이 없어 알림톡과 PUSH를 테스트가 불가능해 개발하지 못했습니다.
+사업자 등록증이 없어 알림톡과 PUSH 테스트가 불가능해 개발 할 수 없었습니다.
